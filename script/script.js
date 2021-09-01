@@ -13,6 +13,14 @@ const showMessage = (message, alertType = "success") => {
     `;
 };
 
+const showResults = (bookResults) => {
+  // if numFound === 0  thats mean no book found.. bookResults.numFound == 0 means false
+  // if i reverse it !false === true.. then i will show not found message..
+  if (!bookResults.numFound) {
+    showMessage("Sorry, No Result Found :(", "warning");
+  }
+};
+
 const fetchDataFromApi = async (searchText) => {
   const searchUrl = `https://openlibrary.org/search.json?q=${searchText}`;
   try {
@@ -22,6 +30,7 @@ const fetchDataFromApi = async (searchText) => {
       throw new Error("something went wrong with the server.");
     }
     const fetchedJsonData = await fetchData.json();
+    showResults(fetchedJsonData);
   } catch (err) {
     showMessage(err.message, "danger");
   }
