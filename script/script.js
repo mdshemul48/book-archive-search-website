@@ -3,8 +3,10 @@ const elementById = (elementId) => document.getElementById(elementId);
 const searchBox = elementById("search-input-box");
 const searchButton = elementById("search-input-button");
 
+const messageBox = elementById("messages");
+
 const showMessage = (message, alertType = "success") => {
-  elementById("messages").innerHTML = `
+  messageBox.innerHTML = `
         <div class="alert alert-${alertType}" role="alert">
            ${message}
         </div>
@@ -22,7 +24,9 @@ const fetchDataFromApi = async (searchText) => {
 
     const fetchedJsonData = await fetchData.json();
     console.log(fetchedJsonData);
-  } catch (err) {}
+  } catch (err) {
+    showMessage(err.message, "danger");
+  }
 };
 
 searchButton.onclick = () => {
