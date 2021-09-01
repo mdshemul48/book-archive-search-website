@@ -45,7 +45,11 @@ const createBookCard = (bookInfo) => {
                     : "publisher not found"
                 }
                 <hr/>
-                <p>Fist released on ${first_publish_year}</p>
+                ${
+                  first_publish_year
+                    ? `<p>Fist released on ${first_publish_year}</p>`
+                    : "release date not found."
+                }
             </div>
         </div>
     </div>
@@ -62,6 +66,7 @@ const showResults = (bookResults) => {
 
   showMessage(`About ${bookResults.numFound} results found.`);
 
+  // showing all the results
   const booksInfo = bookResults.docs;
   booksInfo.forEach((bookInfo) => {
     const bookCard = document.createElement("div");
@@ -70,6 +75,7 @@ const showResults = (bookResults) => {
   });
 };
 
+//  fetching data from api
 const fetchDataFromApi = async (searchText) => {
   const searchUrl = `https://openlibrary.org/search.json?q=${searchText}`;
   try {
@@ -85,7 +91,14 @@ const fetchDataFromApi = async (searchText) => {
   }
 };
 
+//
 searchButton.onclick = () => {
   const searchText = searchBox.value;
+
+  // cleaning error and results before searching again.
+  searchBox.value = "";
+  resultArea.textContent = "";
+  messageBox.textContent = "";
+
   fetchDataFromApi(searchText);
 };
