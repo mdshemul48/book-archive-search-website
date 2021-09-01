@@ -91,12 +91,10 @@ const fetchDataFromApi = async (searchText) => {
   }
 };
 
-//
 searchButton.onclick = () => {
   const searchText = searchBox.value;
 
   // cleaning error and results before searching again.
-  searchBox.value = "";
   resultArea.textContent = "";
   messageBox.textContent = "";
 
