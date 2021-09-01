@@ -21,9 +21,7 @@ const fetchDataFromApi = async (searchText) => {
     if (!fetchData.ok) {
       throw new Error("something went wrong with the server.");
     }
-
     const fetchedJsonData = await fetchData.json();
-    console.log(fetchedJsonData);
   } catch (err) {
     showMessage(err.message, "danger");
   }
