@@ -1,3 +1,4 @@
+// using this function for getting all element of page using id.
 const elementById = (elementId) => document.getElementById(elementId);
 
 const searchBox = elementById("search-input-box");
