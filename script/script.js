@@ -20,36 +20,38 @@ const createBookCard = (bookInfo) => {
   const { title, author_name, first_publish_year, publisher, cover_i } =
     bookInfo;
 
+  const bookTitle = title ? title : "title not found.";
+
+  const bookCoverPhoto = cover_i
+    ? `https://covers.openlibrary.org/b/id/${cover_i}-M.jpg`
+    : "images/notFound.png";
+
+  const bookAuthor =
+    author_name?.length > 0
+      ? `<h6>By ${author_name[0]}.</h6>`
+      : "<h6>author not found</h6>";
+
+  const bookPublisher =
+    publisher?.length > 0
+      ? `<p class="my-0">Published by ${publisher[0]}.</p>`
+      : "<p>publisher not found</p>";
+
+  const firstPublishYear = first_publish_year
+    ? `<p>First released on ${first_publish_year}</p>`
+    : "<p>release date not found.</p>";
+
   return `
     <div>
         <div class="card">
-            <img src="${
-              cover_i
-                ? `https://covers.openlibrary.org/b/id/${cover_i}-M.jpg`
-                : "images/notFound.png"
-            }" class="card-img-top">
+            <img src="${bookCoverPhoto}" class="card-img-top">
             <div class="card-body">
-                <h4 class="card-title">${
-                  title ? title : "title not found."
-                }</h4>
+                <h4 class="card-title">${bookTitle}</h4>
                 <hr/>
-                ${
-                  author_name?.length > 0
-                    ? `<h6>By ${author_name[0]}.</h6>`
-                    : "<h6>author not found</h6>"
-                }
+                ${bookAuthor}
                 <hr/>
-                ${
-                  publisher?.length > 0
-                    ? `<p class="my-0">Published by ${publisher[0]}.</p>`
-                    : "publisher not found"
-                }
+                ${bookPublisher}
                 <hr/>
-                ${
-                  first_publish_year
-                    ? `<p>First released on ${first_publish_year}</p>`
-                    : "release date not found."
-                }
+                ${firstPublishYear}
             </div>
         </div>
     </div>
