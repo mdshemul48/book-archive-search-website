@@ -15,7 +15,6 @@ const showMessage = (message, alertType = "success") => {
     `;
 };
 
-
 // creating card element for every book.
 const createBookCard = (bookInfo) => {
   const { title, author_name, first_publish_year, publisher, cover_i } =
@@ -48,7 +47,7 @@ const createBookCard = (bookInfo) => {
                 <hr/>
                 ${
                   first_publish_year
-                    ? `<p>Fist released on ${first_publish_year}</p>`
+                    ? `<p>First released on ${first_publish_year}</p>`
                     : "release date not found."
                 }
             </div>
