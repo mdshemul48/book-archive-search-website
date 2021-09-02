@@ -34,15 +34,13 @@ const createBookCard = (bookInfo) => {
                 <hr/>
                 ${
                   author_name?.length > 0
-                    ? `<h6>By ${author_name.join(", ")}.</h6>`
+                    ? `<h6>By ${author_name[0]}.</h6>`
                     : "<h6>author not found</h6>"
                 }
                 <hr/>
                 ${
                   publisher?.length > 0
-                    ? `<p class="my-0">Published by ${publisher.join(
-                        ", "
-                      )}.</p>`
+                    ? `<p class="my-0">Published by ${publisher[0]}.</p>`
                     : "publisher not found"
                 }
                 <hr/>
