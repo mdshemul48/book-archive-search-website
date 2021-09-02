@@ -15,6 +15,8 @@ const showMessage = (message, alertType = "success") => {
     `;
 };
 
+
+// creating card element for every book.
 const createBookCard = (bookInfo) => {
   const { title, author_name, first_publish_year, publisher, cover_i } =
     bookInfo;
