@@ -33,12 +33,12 @@ const createBookCard = (bookInfo) => {
 
   const bookPublisher =
     publisher?.length > 0
-      ? `<p class="my-0">Published by ${publisher[0]}.</p>`
-      : "<p>publisher not found</p>";
+      ? `Published by ${publisher[0]}.`
+      : "publisher not found";
 
   const firstPublishYear = first_publish_year
-    ? `<p>First released on ${first_publish_year}</p>`
-    : "<p>release date not found.</p>";
+    ? `First released on ${first_publish_year}`
+    : "release date not found.";
 
   return `
     <div>
@@ -47,11 +47,11 @@ const createBookCard = (bookInfo) => {
             <div class="card-body">
                 <h4 class="card-title">${bookTitle}</h4>
                 <hr/>
-                ${bookAuthor}
+                  <p class="my-0">${bookAuthor}</p> 
                 <hr/>
-                ${bookPublisher}
+                  <p class="my-0">${bookPublisher}</p> 
                 <hr/>
-                ${firstPublishYear}
+                <p class="my-0">${firstPublishYear}</p> 
             </div>
         </div>
     </div>
