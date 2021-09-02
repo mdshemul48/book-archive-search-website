@@ -7,6 +7,7 @@ const searchButton = elementById("search-input-button");
 const messageBox = elementById("messages");
 const resultArea = elementById("result_items");
 
+// this will show error and success message
 const showMessage = (message, alertType = "success") => {
   messageBox.innerHTML = `
         <div class="alert alert-${alertType}" role="alert">
