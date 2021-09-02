@@ -66,8 +66,8 @@ const showResults = (bookResults) => {
 
   showMessage(`About ${bookResults.numFound} results found.`);
 
-  // showing all the results
-  const booksInfo = bookResults.docs;
+  // showing 25 result from total searched books.
+  const booksInfo = bookResults.docs.splice(0, 24);
   booksInfo.forEach((bookInfo) => {
     const bookCard = document.createElement("div");
     bookCard.innerHTML = createBookCard(bookInfo);
